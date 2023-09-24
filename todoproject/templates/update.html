@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card"  style="background-color:lightseagreen;">
+    <div class="card-header">
+        <div class="card-title">
+            <b>Task Update</b>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+               {% csrf_token %}
+                 <table>
+            <tr>
+
+                <td>{{ form }}</td>
+            </tr>
+        </table>
+
+                <button type="submit">Confirm</button>
+    </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
