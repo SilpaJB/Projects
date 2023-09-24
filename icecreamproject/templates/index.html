@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Icecreams</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#" >
+      <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fc4.wallpaperflare.com%2Fwallpaper%2F946%2F557%2F290%2Fice-cream-food-colorful-wallpaper-preview.jpg&tbnid=HPngO1RoLXmE0M&vet=12ahUKEwj2l83X3YiBAxVuzaACHXVRBJUQMygDegQIARBa..i&imgrefurl=https%3A%2F%2Fwww.wallpaperflare.com%2Fice-cream-food-colorful-food-and-drink-cone-ice-cream-cone-wallpaper-pnknd&docid=3x2iT3inu8K_NM&w=728&h=485&q=ice%20cream%20pics%20wallpapers&ved=2ahUKEwj2l83X3YiBAxVuzaACHXVRBJUQMygDegQIARBa" width="200" height="100" class="d-inline-block align-top" alt="">
+     <strong >Icecream Store</strong>
+  </a>
+</nav>
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        {% for i in icecream_list %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{i.image.url}}" alt=" "  height="250">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text"></p>
+                    <a href="{% url 'icecreamapp:detail' i.id %}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
