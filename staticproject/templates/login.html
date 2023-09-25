@@ -1,0 +1,133 @@
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--  <title>login </title>-->
+
+
+
+
+
+<!--<body>-->
+<!--<form action="login" method="post">-->
+<!--    {% csrf_token %}-->
+<!--  <table>-->
+<!--        <tr>-->
+<!--    <td><label>Username</label></td>-->
+<!--            <td><input type="text" name="Username" placeholder="Enter your username"></td>-->
+<!--          </tr>-->
+<!--        <tr>-->
+<!--    <td><label>Password</label></td>-->
+<!--    <td><input type="password" name="Password" placeholder="Enter your Password"></td>-->
+<!--        </tr>-->
+<!--     <tr>-->
+<!--    <td><button type="submit" >Login</button></td>-->
+<!--        </tr>-->
+<!--  </table>-->
+
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple login form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      body {
+      background-image:url(https://cdn.wallpapersafari.com/43/69/78bGOq.jpg );
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+       width: 100%;
+      max-width: 400px;
+      }
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      button {
+      background-color: #8ebf42;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
+      h1 {
+      text-align:center;
+      font-size:18px;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      color:white;
+      text-align: left;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+<!--      span.psw {-->
+<!--      float: right;-->
+<!--      padding-top: 0;-->
+<!--      padding-right: 15px;-->
+<!--      }-->
+<!--      /* Change styles for span on extra small screens */-->
+<!--      @media screen and (max-width: 300px) {-->
+<!--      span.psw {-->
+<!--      display: block;-->
+<!--      float: none;-->
+<!--      }-->
+    </style>
+</head>
+<body>
+<!--    <img src="" alt="HTML tutorial" width="200" height="120" />-->
+<form action="login" method="post">
+     {% csrf_token %}
+      <h1>Login Form</h1>
+      <div class="formcontainer">
+           <hr/>
+           <div class="container">
+                <label><strong>Username</strong></label>
+                <input type="text" placeholder="Enter Username" name="Username" >
+                <label><strong>Password</strong></label>
+                <input type="password" placeholder="Enter Password" name="Password">
+           </div>
+           <button type="submit">Login</button>
+      </div>
+
+
+
+
+
+
+
+<!--      <div class="container" style="background-color: #eee">-->
+<!--&lt;!&ndash;        <label style="padding-left: 15px">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="checkbox"  checked="checked" name="remember"> Remember me&ndash;&gt;-->
+<!--&lt;!&ndash;        </label>&ndash;&gt;-->
+<!--        <span class="psw"><a href="#"> Forgot password?</a></span>-->
+<!--      </div>-->
+
+</form>
+</body>
+</html>
