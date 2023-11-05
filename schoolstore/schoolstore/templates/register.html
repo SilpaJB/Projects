@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+      background-image:url("{% static 'img/cat-4.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      }
+      form {
+      border: 6px solid black;
+      width: 100%;
+      max-width: 400px;
+
+
+      }
+      input[type=text],input[type=password]{
+      width: 100%;
+      padding: 11px 8px;
+      display: inline-block;
+      border: 1px solid black;
+      box-sizing: border-box;
+
+      }
+      button {
+      background-color: blue;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      }
+      h1 {
+      text-align:center;
+      font-size:45px;
+      color:black;
+
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+         color:black;
+      text-align: left;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 14px 0;
+      text-align:left;
+
+      }
+<!--      span.psw {-->
+<!--      float: right;-->
+<!--      padding-top: 0;-->
+<!--      padding-right: 15px;-->
+<!--      }-->
+<!--      /* Change styles for span on extra small screens */-->
+<!--      @media screen and (max-width: 300px) {-->
+<!--      span.psw {-->
+<!--      display: block;-->
+<!--      float: none;-->
+<!--      }-->
+    </style>
+
+</head>
+<body>
+<form action="register" method="post">
+    {% csrf_token %}
+     <h1>Registration Form</h1>
+
+      <div class="formcontainer">
+          <hr/>
+          <div class="container">
+               <label><strong>Username</strong></label>
+               <input type="text" placeholder="Enter Username" name="Username" >
+               <label><strong>Password</strong></label>
+               <input type="password" placeholder="Enter Password" name="Password">
+               <label><strong>Confirm Password</strong></label>
+               <input type="password" placeholder="Enter Password" name="Confirm Password">
+          </div>
+          <button type="submit">Register</button>
+      </div>
+    {% for msg in messages %}
+  <p style="color: blue;text-align:center;font-weight:bold;font-size:18px;">{{ msg }}</p>
+{% endfor %}
+</form>
+</body>
+</head>
+</html>
+
+

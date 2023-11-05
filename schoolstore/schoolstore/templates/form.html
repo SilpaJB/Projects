@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+      background-image:url("{% static 'img/leaf.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      }
+      form {
+      width: 100%;
+      max-width: 500px;
+       }
+      input[type=text],input[type=date],input[type=number],input[type=tel],input[type=email],textarea,Select{
+      width: 100%;
+      padding: 11px 8px;
+      display: inline-block;
+      border: 1px solid black;
+      box-sizing: border-box;
+
+      }
+
+      button {
+      background-color: blue;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      box-sizing: border-box;
+      }
+
+      button:hover {
+      opacity: 0.8;
+      width: 100%;
+      }
+      .formcontainer {
+      color:black;
+      text-align: center;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      }
+
+     .container label {
+     flex: 1;
+     margin-right: 10px;
+     }
+
+    .container input,
+    .container textarea {
+    flex: 2;
+    }
+    .centered-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+    .container input,
+        .container textarea,
+        .container select {
+            flex: 2;
+            width: 100%; /* Ensure the input fields take up the available space */
+        }
+   .show-button-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column; /* Stack button and form vertically
+     }
+
+    </style>
+
+</head>
+<body>
+ <!-- Button to toggle the form -->
+
+ <div class="show-button-container" >
+      <button id="showFormButton" >Form</button>
+     <form id="myForm" style="display: none;"  action="#" method="post">
+         {% csrf_token %}
+         <div class="formcontainer">
+             <div class="container">
+               <label><strong>Name</strong></label>
+               <input type="text" placeholder="Enter Name" name="Name" >
+             </div>
+             <div class="container">
+               <label><strong>DOB</strong></label>
+               <input type="date" placeholder="Enter DOB" name="DOB">
+             </div>
+             <div class="container">
+               <label><strong>Age</strong></label>
+               <input type="number" placeholder="Enter Age" name="Age">
+             </div>
+             <div class="container">
+               <label><strong>Gender</strong></label>
+               <input type="radio" id="Male" name="Gender" value="Male">
+               <label for="Male">Male</label>
+               <input type="radio" id="Female" name="Gender" value="Female">
+               <label for="Female">Female</label>
+               <input type="radio" id="Other" name="Gender" value="Other">
+               <label for="Other">Other</label>
+             </div>
+             <div class="container">
+               <label><strong>Phone Number</strong></label>
+               <input type="tel" placeholder="Enter phone Number" name="Phone Number" pattern="[0-9]{10}" maxlength="10">
+             </div>
+             <div class="container">
+               <label><strong>Mail Id</strong></label>
+               <input type="email" placeholder="Enter Mail Id" name="Mail Id">
+             </div>
+             <div class="container">
+               <label><strong>Address</strong></label>
+              <textarea id="Address" name="Address" ></textarea>
+             </div>
+             <div class="container">
+               <label><strong>Department</strong></label>
+               <select id="Department" name="Department" >
+                   <option value="">Select a department</option>
+                   <option value="IT">IT</option>
+                   <option value="Commerce">Commerce</option>
+                   <option value="Mathematics">Mathematics</option>
+                   <option value="Physics">Physics</option>
+                   <option value="Chemistry">Chemistry</option>
+               </select>
+             </div>
+             <div class="container">
+              <label><strong>Courses</strong></label>
+              <select id="Courses" name="Courses">
+                     <option value="">Select a Course</option>
+              </select>
+             </div>
+             <div class="container">
+                <label><strong>Purpose</strong></label>
+              <select id="Purpose" name="Purpose">
+                  <option value="">Select a purpose</option>
+                <option value="Enquiry">Enquiry</option>
+                <option value="Place">Place Order</option>
+                <option value="Return">Return</option>
+              </select>
+             </div>
+             <div class="container">
+                <label><strong>Materials Provide</strong></label>
+                <input type="checkbox" id="NoteBook" name="Materials Provide" value="Note Book">
+                <label for="NoteBook">Note Book</label>
+                <input type="checkbox" id="pen" name="Materials Provide" value="Pen">
+                <label for="pen">Pen</label>
+                <input type="checkbox" id="examPapers" name="Materials Provide" value="Exam Papers">
+                <label for="examPapers">Exam Papers</label>
+             </div>
+             </form>
+                   <button id="submitButton"  style="width:40%; margin: 10px auto;text-align: center;" >Submit</button>
+         </div>
+
+    {% for msg in messages %}
+  <p style="color: blue;text-align:center;font-weight:bold;font-size:18px;">{{ msg }}</p>
+    {% endfor %}
+
+      <div class="centered-container">
+          <a href="index">Home</a>
+      </div>
+   </div>
+     <script src="{%static 'js/course.js' %}"></script>
+
+</body>
+</head>
+</html>
+
+
